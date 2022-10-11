@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css选择器</title>
+    <style>
+        /* 标签选择器：根据标签来选择标签，以标签开头，此种选择器影响范围大，一般用来做一些通用设置。 */
+        p {
+           color: red;
+        }
+
+        /* 类选择器：根据类名来选择标签，以 . 开头，一个类选择器可应用于多个标签上，一个标签上也可以使用多个类选择器，多个类选择器需要使用空格分割，应用灵活，可复用，是css中应用最多的一种选择器。 */
+        .blue {
+            color: blue;
+        }
+        .big {
+            font-size: 20px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background: gold;
+        }
+
+        /* 根据id选择标签，以#开头，元素的id名称不能重复，所以id选择器只能对应于页面上一个元素，不能复用。 */
+        /*
+        id选择器：针对html页面上的某个特定标签进行样式的设置；
+        html页面上的每个标签都可以设置一个id属性，但是同一个页面上的标签的id属性值不用重复，因为id属性的目的就是
+        可以通过id定位到页面的上某一个特定标签；
+        */
+        #msg {
+            font-size: 30px;
+            background: green;
+        }
+
+    </style>
+</head>
+<body>
+    <p class="blue">这是一个段落</p>
+    <p class="big" id="msg">这是一个段落</p>
+    <div class="blue big box">这是一个div</div>
+</body>
+</html>

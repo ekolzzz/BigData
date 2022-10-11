@@ -1,0 +1,46 @@
+"""
+思考：如何编写一个通用的装饰器，计算函数的执行时间，要求可以装饰任意函数（带任何参数或返回值）
+"""
+# 定义一个装饰器
+import time
+
+
+def get_time(func):
+
+    # 注意： wrapper 小括号里面的 *args 和 **kwargs  代表是两种不定长形参
+    def wrapper(*args, **kwargs): # 形参
+
+        t1 = time.time() # 这是可以修改成其他函数
+
+        # 注意：调用func 时，小括号里面的 *args 和 **kwargs 代表的是拆解传实参
+        result = func(*args, **kwargs) # 传递实参
+
+        t2 = time.time() # 这是可以修改成其他函数
+        print(f'函数执行的时间：{t2-t1}') # 这是可以修改成其他函数
+
+        return result
+
+    return wrapper
+
+@get_time
+def func1():
+    """func1函数无参数，有返回值"""
+    _sum = 0
+    for i in range(1000000):
+        _sum += i
+    return _sum
+
+@get_time
+def func2(m, n):
+    """计算m-n之间的数字和，func2函数有两个参数，也有返回值"""
+    result = 0
+
+    # 遍历计算 m-n 之间的数字和
+    for i in range(m, n + 1):
+        result += i
+
+    # 返回计算的结果
+    return result
+
+func1()
+func2(1, 10000)

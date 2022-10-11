@@ -1,0 +1,5 @@
+使用(w)write写入新内容
+hello hadoop
+hello spark
+使用(a)append写入新内容hello hadoop
+hello spark
